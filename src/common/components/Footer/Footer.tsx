@@ -1,18 +1,8 @@
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import SmallSocialMediaButton from '@/components/SmallSocialMediaButton'
+import dynamic from 'next/dynamic'
 
-const socialMedia = [
-  {
-    icon: faGithub,
-    url: 'https://github.com/zydhanlinnar11',
-    name: 'Github',
-  },
-  {
-    icon: faLinkedin,
-    url: 'https://www.linkedin.com/in/zydhanlinnar11',
-    name: 'LinkedIn',
-  },
-]
+const FooterSocialMediaSection = dynamic(
+  () => import('./FooterSocialMediaSection')
+)
 
 export default function Footer() {
   return (
@@ -22,16 +12,7 @@ export default function Footer() {
         <div>
           <small>© {new Date().getFullYear()} Zydhan Linnar Putra.</small>
         </div>
-        <div className="flex gap-3">
-          {socialMedia.map((item) => (
-            <SmallSocialMediaButton
-              icon={item.icon}
-              name={item.name}
-              url={item.url}
-              key={item.name}
-            />
-          ))}
-        </div>
+        <FooterSocialMediaSection />
       </div>
     </footer>
   )

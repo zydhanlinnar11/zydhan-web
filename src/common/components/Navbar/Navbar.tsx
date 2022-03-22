@@ -1,5 +1,7 @@
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import UserMenu from './UserMenu'
+
+const UserMenu = dynamic(() => import('./UserMenu'))
 
 export default function Navbar() {
   return (
